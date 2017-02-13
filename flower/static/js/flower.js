@@ -810,7 +810,7 @@ var flower = (function () {
                       '\'': '&#39;',
                       '/': '&#x2F;'
                   };
-                  return data.replace(/[&<>"'\/]/g, function (s) {
+                  if (data) return data.replace(/[&<>"'\/]/g, function (s) {
                       return entityMap[s];
                   });
                 }
