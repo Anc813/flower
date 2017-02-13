@@ -54,7 +54,7 @@ class TasksDataTable(BaseHandler):
         i = 0
         for _, task in tasks:
             attrs_to_check = ['name', 'root_id', 'rejected', 'runtime']
-            if all(map(lambda x: getattr(task, x, None) is None, attrs_to_check))
+            if all(map(lambda x: getattr(task, x, None) is None, attrs_to_check)):
                 continue
             if i < start:
                 i += 1
