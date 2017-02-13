@@ -53,7 +53,8 @@ class TasksDataTable(BaseHandler):
         filtered_tasks = []
         i = 0
         for _, task in tasks:
-            if task.get('name', None) is None and task.get('root_id', None) is None and task.get('rejected', None) is None and task.get('runtime', None) is None:
+            attrs_to_check = ['name', 'root_id', 'rejected', 'runtime']
+            if all(map(lambda x: getattr(task, x, None) is None, attrs_to_check))
                 continue
             if i < start:
                 i += 1
